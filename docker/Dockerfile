@@ -1,9 +1,8 @@
 FROM node:18-bullseye AS Builder
 WORKDIR /opt/cronicle
 
-COPY download.sh .
 COPY version .
-RUN bash -x download.sh
+CMD VERSION=$(cat version) wget -O package.tar.gz "https://api.github.com/repos/jhuckaby/Cronicle/tarball/${VERSION}"
 
 COPY package.tar.gz /tmp/
 RUN tar zxvf /tmp/package.tar.gz -C /tmp/ && \
