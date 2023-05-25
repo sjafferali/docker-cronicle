@@ -1,9 +1,11 @@
 FROM node:18-bullseye AS Builder
-ENV CRONICLE_VERSION=0.9.21
 WORKDIR /opt/cronicle
-COPY Cronicle-${CRONICLE_VERSION}.tar.gz /tmp/
-RUN tar zxvf /tmp/Cronicle-${CRONICLE_VERSION}.tar.gz -C /tmp/ && \
-    mv /tmp/Cronicle-${CRONICLE_VERSION}/* . && \
+
+RUN bash download.sh
+
+COPY package.tar.gz /tmp/
+RUN tar zxvf /tmp/package.tar.gz -C /tmp/ && \
+    mv /tmp/jhuckaby-Cronicle-*/* . && \
     rm -rf /tmp/* && \
     npm install
 COPY ./patches /tmp/patches
