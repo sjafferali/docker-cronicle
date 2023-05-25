@@ -1,7 +1,7 @@
 FROM node:18-bullseye AS Builder
 WORKDIR /opt/cronicle
 
-RUN bash download.sh
+RUN bash -x download.sh
 
 COPY package.tar.gz /tmp/
 RUN tar zxvf /tmp/package.tar.gz -C /tmp/ && \
