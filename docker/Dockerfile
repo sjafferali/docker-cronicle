@@ -2,7 +2,7 @@ FROM node:18-bullseye AS Builder
 WORKDIR /opt/cronicle
 
 COPY version .
-RUN  wget -O package.tar.gz "https://api.github.com/repos/jhuckaby/Cronicle/tarball/$(cat version)"
+RUN wget -O package.tar.gz "https://api.github.com/repos/jhuckaby/Cronicle/tarball/v0.9.21"
 
 COPY package.tar.gz /tmp/
 RUN tar zxvf /tmp/package.tar.gz -C /tmp/ && \
