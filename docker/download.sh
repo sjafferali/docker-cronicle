@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 VERSION=$(cat version)
 URL="https://api.github.com/repos/jhuckaby/Cronicle/tarball/${VERSION}"
